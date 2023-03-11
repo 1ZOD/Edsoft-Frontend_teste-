@@ -108,12 +108,6 @@ const userSlice = createSlice({
             })
             .then(res=>res.json())
             .then(json=>console.log(json,"Detelado",id))
-
-
-            // const existingUser = state.find(user => user.id === id);
-            // if(existingUser){
-            //     return state.filter(user => user.id !== id);
-            // }
         }
     }
 })
