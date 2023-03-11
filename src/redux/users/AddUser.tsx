@@ -1,0 +1,43 @@
+// import { useState } from "react"
+import React from "react";
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import Button from "../../components/Button"
+import TextField from "./TextField"
+import { addUser } from "./userSlice"
+
+const AddUser = () =>{
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    // const [values, setValues] = useState({
+    //     name: '',
+    //     email: ''
+    // });
+
+    const handleAddUser= ()=> {
+        // setValues({name: '', email:''})
+        dispatch(addUser({}))
+        navigate("/")
+    }
+
+    return (
+        <div className="mt-10 max-w-xl mx-auto">
+            <TextField
+                label="Name"
+                // value=""
+                // onChange={(e) => setValues({...values, name: e.target.value})}
+                inputProps={{type: "text", placeholder:'Jhon Doe'}}
+            />
+            <br/>
+            <TextField
+                label="Email"
+                // value=""
+                // onChange={(e) => setValues({...values, email: e.target.value})}
+                inputProps={{type: "email", placeholder:'Jhondoe@gmail.com'}}
+            />
+            <Button onClick={handleAddUser}>Submit</Button>
+        </div>
+    )
+}
+
+export default AddUser
